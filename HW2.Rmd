@@ -1,5 +1,5 @@
 ---
-title: "Comparative Ananysis of MLB Pitchers"
+title: "Comparative Analysis of MLB Pitchers"
 author: "Isabelle Gallucci"
 date: "`r Sys.Date()`"
 output: html_document

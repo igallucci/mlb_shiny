@@ -24,10 +24,11 @@ visual to select a specific t eam, which g enerated a s catterplot c omparing e 
 percentage (obp) to their expected on-base percentage (xobp). Furthermore, users can hover over the points
 on the plot to view the pitcher’s name and exact values for both statistics plotted. My second visual is a
 bar plot visualizing the average strikeout percentage per team. I included a click event in this plot, which
-generates a filtered version o f t he p itchers dataframe with a ll o f t he s tatistics f or t he pitchers from the
+generates a filtered version o f t he p itchers dataframe with all of the statistics for the pitchers from the
 selected team. This collection of user inputs allows for individual player and overall team performance to be
 analyzed concurrently. In order to make the teams easily differentiable on both visuals, the data on both
 plots are encoded according to their club’s colors, courtesy of the teamcolors package.
+
 During data cleaning and preparation, I pulled data from the Baseball Savant website to obtain Statcast
 pitcher metrics, and combined it with a player ID map to include the pitchers respective teams. In order to
 acquire each teams color scheme for the visuals, I utilized the baseballr package to pull each franchise’s

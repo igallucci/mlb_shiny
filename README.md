@@ -19,8 +19,8 @@ their success, but further analysis would be required to determine this.
 
 ## User Interface Creation
 The user interface (ui) was designed to be insightful while also being user friendly. I included various user
-inputs to analyze specific teams as well as individual p itchers. A drowdown menu was utilized in the first
-visual to select a specific t eam, which g enerated a s catterplot c omparing e ach p itchers o bserved on-base
+inputs to analyze specific teams as well as individual pitchers. A drowdown menu was utilized in the first
+visual to select a specific team, which generated a scatterplot comparing each pitchers observed on-base
 percentage (obp) to their expected on-base percentage (xobp). Furthermore, users can hover over the points
 on the plot to view the pitcher’s name and exact values for both statistics plotted. My second visual is a
 bar plot visualizing the average strikeout percentage per team. I included a click event in this plot, which

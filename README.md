@@ -100,6 +100,49 @@ barplot = function(df, selected_){
     labs(x = 'Team', y = 'Average Strikeout (%)', title = 'Average Strikeout Percentage')
 }
 ```
+The methods and plot functions above were put together to create the interactive visuals to compare the pitcher statistics in question: 
+```{r}
+# Definition of app
+ui <- fluidPage(
+  titlePanel("MLB Pitcher Comparative Analysis"),
+  selectInput('teams', 'Team', teams),
+  plotlyOutput('obp_comparison'),
+  plotOutput('bar_plot', click = 'plot_click'),
+  dataTableOutput('table')
+)
+
+# Define the server
+server <- function(input, output) {
+  pitcher_subset = reactive({
+    pitchers%>%
+      mutate(selected = 
+               team_full_name %in% input$teams
+      )
+  })
+  
+  selected = reactiveVal(rep(1, nrow(pitchers)))
+  observeEvent(
+    input$plot_click,{
+      click_x = round(input$plot_click$x)
+      selected_team = unique(pitchers$TEAM)[click_x]
+      
+      selected(as.numeric(pitchers$TEAM == selected_team))
+    })
+  
+  
+  output$obp_comparison = renderPlotly({
+    scatterplot(pitcher_subset())
+  })
+  
+  output$bar_plot = renderPlot({barplot(pitchers, selected())})
+  output$table = renderDataTable({
+    filtered_data = pitchers[selected() == 1, ]
+  })
+}
+
+# Run the application 
+shinyApp(ui, server)
+```
 
 ## Conclusion
 This shiny application serves as an effective tool for analyzing pitcher performance. Through interactive
